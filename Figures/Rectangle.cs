@@ -1,50 +1,53 @@
-﻿using System;
+﻿using System.Drawing;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 
-namespace ConsoleApp1
+namespace laba2
 {
     class Rectangle: Point
     {
-        private double width;
-        private double height;
-
-        public Rectangle(double x, double y, double width, double height):base(x,y)
+        private int width;
+        private int height;
+        public Rectangle(List<System.Drawing.Point> pointsList,Graphics graphics):base(pointsList, graphics)
         {
-            this.width = width;
-            this.height = height;
-        }
+            try
+            {
+                X = pointsList[0].X;
+                Y = pointsList[0].Y;
+                width = Math.Abs(pointsList[1].X-pointsList[0].X);
+                height = Math.Abs(pointsList[2].Y-pointsList[0].Y);
+            }
+            catch
+            {
 
-        public double Width
+            }  
+        }
+        public int Width
         {
             get 
             {
                 return width;
             }
-
             set
             {
                 width = value;
             }
         } 
 
-        public double Height 
+        public int Height 
         {
             get
             {
                 return height;
             }
-
             set
             {
                 height = value;
             }
         }
-        public override void ShowFigure()
+        public override void DrawFigure()
         {
-            Console.WriteLine("Прямоугольник с верхней левой вершиной в точке ({0};{1}), длиной {2} и шириной {3}",X,Y,Height,Width);
+            graphics.DrawRectangle(pen, X, Y, Width, Height);
         }
     }
 }

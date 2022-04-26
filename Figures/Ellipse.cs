@@ -1,46 +1,52 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing;
 
-namespace ConsoleApp1
+namespace laba2
 {
     class Ellipse:Point
     {
-        private double semi_axel1;
-        private double semi_axel2;
-
-        public Ellipse(double x, double y, double semi_axel1, double semi_axel2) :base(x,y)
+        private int semi_axel1;
+        private int semi_axel2;
+        public Ellipse(List<System.Drawing.Point> pointsList,Graphics graphics):base(pointsList , graphics)
         {
-            Semi_axel1 = semi_axel1;
-            Semi_axel2 = semi_axel2;
+            try
+            {
+                X = pointsList[0].X;
+                Y = pointsList[0].Y;
+                Semi_axel1 = Math.Abs(pointsList[1].X - pointsList[0].X);
+                Semi_axel2 = Math.Abs(pointsList[2].Y - pointsList[0].Y);
+            }
+            catch 
+            {
+
+            }
         }
-
-        public double Semi_axel1
+        public int Semi_axel1
         {
-            get{
+            get
+            {
                 return semi_axel1;
             }
-
-            set{
+            set
+            {
                 semi_axel1 = value;
             }
         }
-        public double Semi_axel2
+        public int Semi_axel2
         {
-            get{
+            get
+            {
                 return semi_axel2;
             }
-
-            set{
+            set
+            {
                 semi_axel2 = value;
             }
         }
-
-        public override void ShowFigure()
+        public override void DrawFigure()
         {
-            Console.WriteLine("Эллипс с центром в точке ({0};{1} и полуосями {2} и {3})",X,Y,Semi_axel1,Semi_axel2);
+            graphics.DrawEllipse(pen,X-semi_axel1,Y-semi_axel2,Semi_axel1*2,Semi_axel2*2);
         }
     }
 }

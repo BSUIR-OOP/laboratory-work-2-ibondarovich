@@ -1,36 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing;
 
-namespace ConsoleApp1
+namespace laba2
 {
     class Circle: Ellipse
     {
-
-        private double radius;
-        public Circle(double x, double y, double radius):base(x,y,radius,radius)
+        private int radius;
+        public Circle(List<System.Drawing.Point> pointsList,Graphics graphics):base(pointsList, graphics)
         {
-            this.radius = radius;
-        }
+            try
+            {
+                if (Math.Abs(pointsList[0].X - pointsList[1].X) > Math.Abs(pointsList[0].Y - pointsList[1].Y))
+                    Radius = Math.Abs(pointsList[0].X - pointsList[1].X);
+                else
+                    Radius = Math.Abs(pointsList[0].Y - pointsList[1].Y);
+            }
+            catch 
+            {
 
-        public double Radius
+            }
+        }
+        public int Radius
         {
             get
             {
                 return radius;
             }
-
             set
             {
                 radius = value;
             }
         }
-
-        public override void ShowFigure()
+        public override void DrawFigure()
         {
-            Console.WriteLine("Окружность с центром в точке ({0};{1}) и радиусом {2}",X,Y,Radius);
+            graphics.DrawEllipse(pen,X-radius,Y-radius,radius*2,radius*2);
         }
     }
 }

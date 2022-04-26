@@ -1,25 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Drawing;
 
-namespace ConsoleApp1
+namespace laba2
 {
     class FigureList
     {
-        private List<Point> figureList = new List<Point>(); 
-
-        public void AddList(Point figure)
+        private List<Point> figureList;
+        public FigureList(List<System.Drawing.Point> pointsList, Graphics graphics)
         {
-            figureList.Add(figure);
-        }
-
-        public void DrawFigures()
-        {
-            foreach (var figure in figureList)
+            figureList = new List<Point>()
             {
-                figure.ShowFigure();
+                new Point(pointsList, graphics),
+                new Line(pointsList, graphics),
+                new Circle(pointsList, graphics),
+                new Ellipse(pointsList, graphics),
+                new Rectangle(pointsList, graphics),
+                new Triangle(pointsList, graphics)
+            };
+        }
+        public void DrawFigure(int indexOfSelectedItem)
+        {
+            foreach(var figure in figureList)
+            {
+                if(figureList.IndexOf(figure) == indexOfSelectedItem)
+                {
+                    figure.DrawFigure();
+                }
             }
         }
     }

@@ -1,24 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Drawing;
 
-namespace ConsoleApp1
+namespace laba2
 {
     class Line: Point
     {
         private Point point1;
         private Point point2;
-        public Line(double x1, double y1, double x2, double y2)
+        public Line(List<System.Drawing.Point> pointsList,Graphics graphics):base(pointsList, graphics)
         {
-            point1 = new Point(x1,y1);
-            point2 = new Point(x2,y2);
+            try
+            {
+                point1 = new Point(pointsList[0].X, pointsList[0].Y);
+                point2 = new Point(pointsList[1].X,pointsList[1].Y);
+            }
+            catch
+            {
+                
+            }
         }
-        
-        public override void ShowFigure()
+        public override void DrawFigure()
         {
-            Console.WriteLine("Отрезок с координатами ({0},{1}) и ({2},{3})",point1.X,point1.Y,point2.X,point2.Y);
+            graphics.DrawLine(pen, point1.X, point1.Y, point2.X, point2.Y);
         }
     }
 }

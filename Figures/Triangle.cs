@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Drawing;
 
-namespace ConsoleApp1
+namespace laba2
 {
     class Triangle: Point
     {
@@ -12,16 +9,25 @@ namespace ConsoleApp1
         private Point point2;
         private Point point3;
         
-        public Triangle(double x0, double y0, double x1, double y1, double x2, double y2)
+        public Triangle(List<System.Drawing.Point> pointsList,Graphics graphics): base(pointsList, graphics)
         {
-            point1 = new Point(x0,y0);
-            point2 = new Point(x1,y1);
-            point3 = new Point(x2,y2);
+            try
+            {
+                point1 = new Point(pointsList[0].X, pointsList[0].Y);
+                point2 = new Point(pointsList[1].X,pointsList[1].Y);
+                point3 = new Point(pointsList[2].X,pointsList[2].Y); 
+            }
+            catch
+            {
+
+            } 
         }
 
-        public override void ShowFigure()
+        public override void DrawFigure()
         {
-            Console.WriteLine("Треугольник с веришинами в точках ({0};{1}), ({2};{3}) и ({4};{5})",point1.X, point1.Y, point2.X, point2.Y, point3.X, point3.Y);
+            graphics.DrawLine(pen, point1.X, point1.Y, point2.X, point2.Y);
+            graphics.DrawLine(pen, point1.X, point1.Y, point3.X, point3.Y);
+            graphics.DrawLine(pen, point2.X, point2.Y,point3.X, point3.Y);
         }
     }
 }

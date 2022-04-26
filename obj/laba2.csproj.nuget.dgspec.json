@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\1УНИК\\4сем\\ООП\\laba2\\laba2.csproj": {}
+    "D:\\1УНИК\\4сем\\ООП\\лаба 2 тест\\laba2\\laba2.csproj": {}
   },
   "projects": {
-    "D:\\1УНИК\\4сем\\ООП\\laba2\\laba2.csproj": {
+    "D:\\1УНИК\\4сем\\ООП\\лаба 2 тест\\laba2\\laba2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\1УНИК\\4сем\\ООП\\laba2\\laba2.csproj",
+        "projectUniqueName": "D:\\1УНИК\\4сем\\ООП\\лаба 2 тест\\laba2\\laba2.csproj",
         "projectName": "laba2",
-        "projectPath": "D:\\1УНИК\\4сем\\ООП\\laba2\\laba2.csproj",
+        "projectPath": "D:\\1УНИК\\4сем\\ООП\\лаба 2 тест\\laba2\\laba2.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "D:\\1УНИК\\4сем\\ООП\\laba2\\obj\\",
+        "outputPath": "D:\\1УНИК\\4сем\\ООП\\лаба 2 тест\\laba2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net5.0-windows"
+          "net5.0-windows7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
