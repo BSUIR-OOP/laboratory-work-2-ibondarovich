@@ -1,33 +1,23 @@
-﻿using System.Collections.Generic;
+using laba2New.Shapes;
+using laba2New.Drawing;
 using System.Drawing;
+using System.Collections.Generic;
 
-namespace laba2
+namespace laba2New.Figures
 {
-    class Triangle: Point
+    public class Triangle : Shape
     {
-        private Point point1;
-        private Point point2;
-        private Point point3;
-        
-        public Triangle(List<System.Drawing.Point> pointsList,Graphics graphics): base(pointsList, graphics)
-        {
-            try
-            {
-                point1 = new Point(pointsList[0].X, pointsList[0].Y);
-                point2 = new Point(pointsList[1].X,pointsList[1].Y);
-                point3 = new Point(pointsList[2].X,pointsList[2].Y); 
-            }
-            catch
-            {
 
-            } 
+        public override FigureDrawer figureDrawer { get; set; }
+
+        public Triangle()
+        {
+            figureDrawer = new LineDrawer();
         }
-
-        public override void DrawFigure()
+        public override Point[] AddСoordinates(List<Point> pointsList)
         {
-            graphics.DrawLine(pen, point1.X, point1.Y, point2.X, point2.Y);
-            graphics.DrawLine(pen, point1.X, point1.Y, point3.X, point3.Y);
-            graphics.DrawLine(pen, point2.X, point2.Y,point3.X, point3.Y);
+            pointsArray = new Point[] {pointsList[0], pointsList[1], pointsList[2]};
+            return pointsArray;
         }
     }
 }

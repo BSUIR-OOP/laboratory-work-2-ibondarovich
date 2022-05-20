@@ -2,17 +2,39 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using laba2New.Shapes;
+using laba2New.Figures;
 
-namespace laba2
+namespace laba2New
 {
     public partial class Form1 : Form
     {
-        List<System.Drawing.Point> pointsList;
-        Graphics graphics;
+        private Dictionary<string, Shape> dictionary;
+        private Graphics graphics;
+        private List<Point> pointsList;
+
+        Shape figure;
         public Form1()
         {
             InitializeComponent();
-            pointsList = new List<System.Drawing.Point>();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            pointsList = new List<Point>();
+            dictionary = new Dictionary<string, Shape>()
+            {
+                {"Line", new Line() },
+                {"Circle", new Circle() },
+                {"Ellipse",new Ellipse() },
+                {"Rectangle", new laba2New.Figures.Rectangle() },
+                {"Triangle",  new Triangle() }
+            };
+
+            foreach(var item in dictionary.Keys)
+            {
+                comboBox1.Items.Add(item);
+            }
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
@@ -31,10 +53,10 @@ namespace laba2
             pointsList.Add(e.Location);
         }
 
-        private void buttonDraw_Click(object sender, EventArgs e)
+         private void buttonDraw_Click(object sender, EventArgs e)
         {
-            FigureList figureList = new FigureList(pointsList, graphics);
-            figureList.DrawFigure(comboBox1.SelectedIndex);
+            figure = dictionary.GetValueOrDefault(comboBox1.Text);
+            figure.figureDrawer.DrawFigure(figure, pointsList, graphics);
             pointsList.Clear();
         }
     }

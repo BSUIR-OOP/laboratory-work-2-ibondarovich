@@ -1,52 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
+using System.Collections.Generic;
+using System;
 
-namespace laba2
+namespace laba2New.Figures
 {
-    class Ellipse:Point
+    public class Ellipse : Circle
     {
         private int semi_axel1;
         private int semi_axel2;
-        public Ellipse(List<System.Drawing.Point> pointsList,Graphics graphics):base(pointsList , graphics)
+        public override Point[] AddСoordinates (List<Point> pointsList)
         {
-            try
-            {
-                X = pointsList[0].X;
-                Y = pointsList[0].Y;
-                Semi_axel1 = Math.Abs(pointsList[1].X - pointsList[0].X);
-                Semi_axel2 = Math.Abs(pointsList[2].Y - pointsList[0].Y);
-            }
-            catch 
-            {
 
-            }
-        }
-        public int Semi_axel1
-        {
-            get
-            {
-                return semi_axel1;
-            }
-            set
-            {
-                semi_axel1 = value;
-            }
-        }
-        public int Semi_axel2
-        {
-            get
-            {
-                return semi_axel2;
-            }
-            set
-            {
-                semi_axel2 = value;
-            }
-        }
-        public override void DrawFigure()
-        {
-            graphics.DrawEllipse(pen,X-semi_axel1,Y-semi_axel2,Semi_axel1*2,Semi_axel2*2);
+            semi_axel1 = Math.Abs(pointsList[1].X - pointsList[0].X);
+            semi_axel2 = Math.Abs(pointsList[2].Y - pointsList[0].Y);
+
+            pointsArray = new Point[] {pointsList[0], new Point(semi_axel1, semi_axel2)};
+
+            return pointsArray;
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿
-namespace laba2
+﻿namespace laba2New
 {
     partial class Form1
     {
@@ -20,7 +19,7 @@ namespace laba2
             }
             base.Dispose(disposing);
         }
-        
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -33,23 +32,22 @@ namespace laba2
             this.label1 = new System.Windows.Forms.Label();
             this.buttonClear = new System.Windows.Forms.Button();
             this.buttonDraw = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
+            // this.comboBox1.Items.AddRange(new object[] {
+            // "Point",
+            // "Line",
+            // "Circle",
+            // "Ellipse",
+            // "Rectanagle",
+            // "Triangle"});
             this.comboBox1.Location = new System.Drawing.Point(952, 68);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(229, 33);
             this.comboBox1.TabIndex = 1;
-             this.comboBox1.Items.AddRange(new object[] {
-            "Point",
-            "Line",
-            "Circle",
-            "Ellipse",
-            "Rectanagle",
-            "Triangle"});
             // 
             // label1
             // 
@@ -80,27 +78,19 @@ namespace laba2
             this.buttonDraw.UseVisualStyleBackColor = true;
             this.buttonDraw.Click += new System.EventHandler(this.buttonDraw_Click);
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(952, 128);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(245, 244);
-            this.textBox1.TabIndex = 5;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1251, 638);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.buttonDraw);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseClick);
             this.ResumeLayout(false);
@@ -109,11 +99,11 @@ namespace laba2
         }
 
         #endregion
+
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.Button buttonDraw;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

@@ -1,53 +1,30 @@
-﻿using System.Drawing;
+using laba2New.Shapes;
+using laba2New.Drawing;
+using System.Drawing;
 using System.Collections.Generic;
-using System;
 
-namespace laba2
+namespace laba2New.Figures
 {
-    class Rectangle: Point
+
+    public class Rectangle : Shape
     {
-        private int width;
-        private int height;
-        public Rectangle(List<System.Drawing.Point> pointsList,Graphics graphics):base(pointsList, graphics)
-        {
-            try
-            {
-                X = pointsList[0].X;
-                Y = pointsList[0].Y;
-                width = Math.Abs(pointsList[1].X-pointsList[0].X);
-                height = Math.Abs(pointsList[2].Y-pointsList[0].Y);
-            }
-            catch
-            {
+        public override FigureDrawer figureDrawer { get; set; }
 
-            }  
-        }
-        public int Width
+        public Rectangle()
         {
-            get 
-            {
-                return width;
-            }
-            set
-            {
-                width = value;
-            }
-        } 
+            figureDrawer = new LineDrawer();
+        }
+        public override Point[] AddСoordinates (List<Point> pointsList)
+        {
+            Point point0 = pointsList[0];
+            Point point1 = new Point(pointsList[1].X, pointsList[0].Y);
+            Point point2 = new Point(pointsList[1].X, pointsList[2].Y);
+            Point point3 = new Point(pointsList[0].X, pointsList[2].Y);
 
-        public int Height 
-        {
-            get
-            {
-                return height;
-            }
-            set
-            {
-                height = value;
-            }
-        }
-        public override void DrawFigure()
-        {
-            graphics.DrawRectangle(pen, X, Y, Width, Height);
+
+            pointsArray = new Point[] {point0, point1, point2, point3};
+
+            return pointsArray;
         }
     }
 }

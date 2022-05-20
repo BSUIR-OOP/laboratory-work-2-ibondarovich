@@ -1,27 +1,24 @@
-﻿using System.Collections.Generic;
+using laba2New.Shapes;
+using laba2New.Drawing;
 using System.Drawing;
+using System.Collections.Generic;
 
-namespace laba2
+namespace laba2New.Figures
 {
-    class Line: Point
+    public class Line : Shape
     {
-        private Point point1;
-        private Point point2;
-        public Line(List<System.Drawing.Point> pointsList,Graphics graphics):base(pointsList, graphics)
+        public override FigureDrawer figureDrawer { get; set; }
+
+        public Line()
         {
-            try
-            {
-                point1 = new Point(pointsList[0].X, pointsList[0].Y);
-                point2 = new Point(pointsList[1].X,pointsList[1].Y);
-            }
-            catch
-            {
-                
-            }
+            figureDrawer = new LineDrawer();
         }
-        public override void DrawFigure()
+
+        public override Point[] AddСoordinates (List<Point> pointsList)
         {
-            graphics.DrawLine(pen, point1.X, point1.Y, point2.X, point2.Y);
+            pointsArray = new Point[] {pointsList[0], pointsList[1]};
+
+            return pointsArray;
         }
     }
 }
