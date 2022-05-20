@@ -5,9 +5,6 @@ namespace laba2New.Shapes
 {
     public abstract class Shape
     {        
-        
-       // protected List<Point> pointsList;
-
         protected Point [] pointsArray;
         
         public abstract FigureDrawer figureDrawer {get; set;}
